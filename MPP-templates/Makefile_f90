@@ -1,0 +1,39 @@
+MF=	Makefile_f90
+
+# For morar
+# FC=	mpif90
+
+# For ARCHER
+FC=	ftn
+
+FFLAGS=	-g
+
+LFLAGS=
+
+EXE=	hello
+
+SRC= \
+	hello.f90
+
+#
+# No need to edit below this line
+#
+
+.SUFFIXES:
+.SUFFIXES: .f90 .o
+
+OBJ=	$(SRC:.f90=.o)
+MOD=	$(SRC:.f90=.mod)
+
+.f90.o:
+	$(FC) $(FFLAGS) -c $<
+
+all:	$(EXE)
+
+$(EXE):	$(OBJ)
+	$(FC) $(FFLAGS) -o $@ $(OBJ) $(LFLAGS)
+
+$(OBJ):	$(MF)
+
+clean:
+	rm -f $(OBJ) $(EXE) $(MOD) core

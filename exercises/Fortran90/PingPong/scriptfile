@@ -1,0 +1,6 @@
+#!/bin/bash
+#$ -V
+#$ -l h_rt=:10:
+#$ -cwd
+#$ -pe mpi 2
+mpiexec -n $NSLOTS ./pingpong

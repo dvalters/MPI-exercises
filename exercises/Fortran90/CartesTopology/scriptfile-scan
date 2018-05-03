@@ -1,0 +1,8 @@
+#!/bin/bash
+#$ -V
+#$ -l h_rt=:10:
+#$ -cwd
+#$ -pe mpi 4
+mpiexec -n $NSLOTS ./scan
+
+

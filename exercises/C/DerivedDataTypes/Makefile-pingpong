@@ -1,0 +1,32 @@
+# Makefile for Collective Communications with pingpong code
+
+#
+# Fortran compiler and options
+#
+
+#
+# C compiler and options
+#
+CC=	mpicc
+LIB=	-lm
+
+#
+# Object files
+#
+OBJ=	pingpong-derdaty.o 
+
+#
+# Compile
+#
+pingpong-derdaty:	$(OBJ)
+	$(CC) -o $@ $(OBJ) $(LIB)
+
+.c.o:
+	$(CC) -c $<
+
+#
+# Clean out object files and the executable.
+#
+clean:
+	rm *.o pingpong-derdaty
+

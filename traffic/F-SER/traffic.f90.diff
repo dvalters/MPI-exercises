@@ -1,0 +1,53 @@
+7,10c7,9
+< ! Set the size of the road
+< 
+<   integer :: ncell = 100000
+<   integer :: maxiter, printfreq
+---
+>   integer, parameter :: NCELL = 100000
+>   integer, parameter :: maxiter = 200000000/NCELL
+>   integer, parameter :: printfreq = maxiter/10
+19,21d17
+<   maxiter = 200000000/ncell
+<   printfreq = maxiter/10
+< 
+26c22
+<   write(*,*) 'Length of road is ', ncell
+---
+>   write(*,*) 'Length of road is ', NCELL
+32,33c28,29
+<   allocate(newroad(0:ncell+1))
+<   allocate(oldroad(0:ncell+1))
+---
+>   allocate(newroad(0:NCELL+1))
+>   allocate(oldroad(0:NCELL+1))
+37,41d32
+<   do i = 1, ncell
+<      oldroad(i) = 0
+<      newroad(i) = 0
+<   end do
+< 
+44c35
+<   ncars = initroad(oldroad(1), ncell, density, seed)
+---
+>   ncars = initroad(oldroad(1), NCELL, density, seed)
+48c39
+<   write(*,*) 'Actual density of cars is ', float(ncars)/float(ncell)
+---
+>   write(*,*) 'Actual density of cars is ', float(ncars)/float(NCELL)
+55c46
+<      call updatebcs(oldroad, ncell)
+---
+>      call updatebcs(oldroad, NCELL)
+57c48
+<      nmove = updateroad(newroad, oldroad, ncell)
+---
+>      nmove = updateroad(newroad, oldroad, NCELL)
+61c52
+<      do i = 1, ncell
+---
+>      do i = 1, NCELL
+85c76
+<               1.d-6*float(ncell)*float(maxiter)/(tstop-tstart), ' MCOPs'
+---
+>               1.d-6*float(NCELL)*float(maxiter)/(tstop-tstart), ' MCOPs'

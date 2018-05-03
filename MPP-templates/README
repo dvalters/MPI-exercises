@@ -1,0 +1,11 @@
+A few of useful files for the MPI course.
+
+The file "mpibatch.sge" should be used for submitting MPI jobs to the backend
+of morar using the Sun Grid Engine batch system. Instructions are included as
+comments in the file itself.
+
+The file "mpibatch.pbs" should be used for submitting MPI jobs to the backend
+of ARCHER using the Portable Batch System PBS. Instructions are included as
+comments in the file itself.
+
+The Makefiles should be easier to use than compiling by hand.

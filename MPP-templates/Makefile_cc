@@ -1,0 +1,43 @@
+MF=	Makefile_cc
+
+# For morar
+# CC=	mpicxx
+
+# For ARCHER
+CC=	CC
+
+CFLAGS=	-g
+
+LFLAGS=	-lm
+
+EXE=	hello
+
+INC= \
+#	No user-defined include files at present - list here if required.
+
+SRC= \
+	hello.cc
+
+#
+# No need to edit below this line
+#
+
+.SUFFIXES:
+.SUFFIXES: .cc .o
+
+OBJ=	$(SRC:.cc=.o)
+
+.cc.o:
+	$(CC) $(CFLAGS) -c $<
+
+all:	$(EXE)
+
+$(OBJ):	$(INC)
+
+$(EXE):	$(OBJ)
+	$(CC) $(CFLAGS) -o $@ $(OBJ) $(LFLAGS)
+
+$(OBJ):	$(MF)
+
+clean:
+	rm -f $(OBJ) $(EXE) core

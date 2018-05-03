@@ -1,0 +1,14 @@
+3c3,4
+< FC=	gfortran
+---
+> # For morar
+> #FC=	gfortran
+5,6c6,10
+< FFLAGS=	-O3
+< LFLAGS=	$(FFLAGS)
+---
+> # For ARCHER
+> FC=	ftn
+> 
+> FFLAGS=
+> LFLAGS=

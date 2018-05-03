@@ -1,0 +1,7 @@
+#!/bin/bash
+#$ -V
+#$ -l h_rt=:10:
+#$ -cwd
+#$ -pe mpi 7
+mpiexec -n $NSLOTS ./derdaty
+
